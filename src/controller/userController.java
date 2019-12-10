@@ -1,13 +1,14 @@
 package controller;
 
+import view.dashboard;
+import view.dashboardPharmacist;
+import view.login;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import uirun.*;
 
 public class userController {
-
     List user = new ArrayList();
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost/medicine";
@@ -15,12 +16,6 @@ public class userController {
     static final String PASS = "";
 
     public void register(String f, String a, String l, String u, String lp, String r) {
-//        String firstname = fnameInput.getText();
-//        String age = ageInput.getText();
-//        String lastname = lnameInput.getText();
-//        String userName = unameInput.getText();
-//        String logpass = pass.getText();
-//        String repass = rePass.getText();
         String name = null;
         if (l.equals("") || f.equals("") || u.equals("") || lp.equals("") || r.equals("") || a.equals("")) {
             JOptionPane.showMessageDialog(null, "All fields are required!!!");

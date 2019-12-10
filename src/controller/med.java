@@ -1,12 +1,12 @@
 
 package controller;
 
+import view.dashboardPharmacist;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import uirun.*;
 
 public class med {
     List allMed = new ArrayList();

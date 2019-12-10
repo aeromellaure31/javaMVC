@@ -1,10 +1,10 @@
 package controller;
 
+import view.login;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JTable;
-import uirun.*;
 
 public class allDash {
 
