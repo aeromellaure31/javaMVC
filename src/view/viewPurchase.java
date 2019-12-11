@@ -11,8 +11,8 @@ public class viewPurchase extends javax.swing.JFrame {
 
     public viewPurchase() {
         initComponents();
-        allPurchase purch = new allPurchase();
-        purch.viewPurchase(medTable, totalPrice);
+        allPurchaseController purch = new allPurchaseController();
+        purch.viewPurchase(medTable, totalPrice, medTable.getColumnCount(), discounted);
     }
 
     /**
@@ -47,6 +47,8 @@ public class viewPurchase extends javax.swing.JFrame {
         medTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         totalPrice = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        discounted = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -176,25 +178,33 @@ public class viewPurchase extends javax.swing.JFrame {
         totalPrice.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         totalPrice.setText("...");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setText("Discounted Price:");
+
+        discounted.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        discounted.setText("...");
+
         javax.swing.GroupLayout FlixotideLayout = new javax.swing.GroupLayout(Flixotide);
         Flixotide.setLayout(FlixotideLayout);
         FlixotideLayout.setHorizontalGroup(
             FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FlixotideLayout.createSequentialGroup()
+                .addGap(307, 307, 307)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FlixotideLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FlixotideLayout.createSequentialGroup()
-                        .addComponent(medicineName2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(195, 195, 195))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FlixotideLayout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(304, 304, 304))))
+                .addComponent(medicineName2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(153, 153, 153))
             .addGroup(FlixotideLayout.createSequentialGroup()
-                .addGap(206, 206, 206)
+                .addGap(90, 90, 90)
                 .addComponent(jLabel1)
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(totalPrice)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(discounted, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(FlixotideLayout.createSequentialGroup()
                     .addContainerGap()
@@ -206,13 +216,15 @@ public class viewPurchase extends javax.swing.JFrame {
             .addGroup(FlixotideLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(medicineName2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                 .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(totalPrice))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(totalPrice)
+                    .addComponent(discounted, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addComponent(jButton6)
-                .addGap(29, 29, 29))
+                .addContainerGap())
             .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(FlixotideLayout.createSequentialGroup()
                     .addGap(86, 86, 86)
@@ -277,14 +289,14 @@ public class viewPurchase extends javax.swing.JFrame {
     }//GEN-LAST:event_searchActionPerformed
 
     private void appNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appNameMouseClicked
-        allPurchase purch = new allPurchase();
-        purch.clickAppName();
+        allPurchaseController purch = new allPurchaseController();
+        purch.goBackDashboard();
         this.setVisible(false);
     }//GEN-LAST:event_appNameMouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        allPurchase purch = new allPurchase();
-        purch.cancel();
+        allPurchaseController purch = new allPurchaseController();
+        purch.goBackDashboard();
         this.setVisible(false);
     }//GEN-LAST:event_jButton6MouseClicked
 
@@ -329,10 +341,12 @@ public class viewPurchase extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Flixotide;
     private javax.swing.JLabel appName;
+    private javax.swing.JLabel discounted;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

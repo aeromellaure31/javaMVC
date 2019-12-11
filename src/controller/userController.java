@@ -7,6 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import model.*;
 
 public class userController {
     List user = new ArrayList();
@@ -16,19 +17,20 @@ public class userController {
     static final String PASS = "";
 
     public void register(String f, String a, String l, String u, String lp, String r) {
+        userModel reg = new userModel();
         String name = null;
         if (l.equals("") || f.equals("") || u.equals("") || lp.equals("") || r.equals("") || a.equals("")) {
             JOptionPane.showMessageDialog(null, "All fields are required!!!");
         } else {
-            String insertQuery = String.format("INSERT INTO medic(firstName,age,lastName,userName,password) VALUES ('%s','%d','%s','%s','%s')", f, Integer.parseInt(a), l, u, lp);
-            String fetchData = ("SELECT userName FROM medic");
+//            String insertQuery = String.format("INSERT INTO medic(firstName,age,lastName,userName,password) VALUES ('%s','%d','%s','%s','%s')", f, Integer.parseInt(a), l, u, lp);
+//            String fetchData = ("SELECT userName FROM medic");
             Connection conn = null;
             Statement stmt = null;
 
             try {
                 conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 stmt = conn.createStatement();
-                ResultSet rsAccount = stmt.executeQuery(fetchData);
+                ResultSet rsAccount = stmt.executeQuery(reg.fetch());
                 while (rsAccount.next()) {
                     name = rsAccount.getString("userName");
                     user.add(name);
@@ -38,7 +40,7 @@ public class userController {
                 } else if (lp.length() < 6) {
                     JOptionPane.showMessageDialog(null, "Password is weak!!!");
                 } else if ((lp.equals(r))) {
-                    stmt.executeUpdate(insertQuery);
+                    stmt.executeUpdate(reg.insertQuery(f, a, l, u, lp));
                     conn.close();
                     new login().setVisible(true);
                 } else {
@@ -51,13 +53,10 @@ public class userController {
     }
     
     public void login(String u, String p){
+        userModel reg = new userModel();
         String password = null;
         String userName = null;
         String age = null;
-
-        String retrieveQuery = String.format("Select userName, password, age from medic where userName='%s'", u);
-        String retrieveQueryPharmacist = String.format("Select userName, password from tblPharma where userName='%s'", u);
-        String updateStatus = String.format("UPDATE tblPharma SET pharmaIdentity='%s'", 1);
         Connection conn = null;
         Statement stmt = null;
 
@@ -65,26 +64,26 @@ public class userController {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
             if (u.equals("admin")) {
-                ResultSet rs = stmt.executeQuery(retrieveQueryPharmacist);
+                ResultSet rs = stmt.executeQuery(reg.retrieveQueryPharmacist(u));
                 while (rs.next()) {
                     password = rs.getString("password");
                     userName = rs.getString("userName");
                 }
                 if ((p.equals(password) && (u.equals(userName)))) {
-                    stmt.executeUpdate(updateStatus);
+                    stmt.executeUpdate(reg.updateStatus());
                     new dashboardPharmacist().setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Username or Password is incorrect!!!");
                 }
             } else {
-                ResultSet rsAccount = stmt.executeQuery(retrieveQuery);
-
+                ResultSet rsAccount = stmt.executeQuery(reg.retrieveQuery(u));
                 while (rsAccount.next()) {
                     password = rsAccount.getString("password");
                     userName = rsAccount.getString("userName");
                     age = rsAccount.getString("age");
                 }
                 if ((p.equals(password) && (u.equals(userName)))) {
+                    stmt.executeUpdate(reg.status(u));
                     new dashboard().setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Username or Password is incorrect!!!");

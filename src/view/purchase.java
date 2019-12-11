@@ -6,6 +6,7 @@
 package view;
 
 import controller.*;
+import javax.swing.JOptionPane;
 
 public class purchase extends javax.swing.JFrame {
 
@@ -210,20 +211,24 @@ public class purchase extends javax.swing.JFrame {
     }//GEN-LAST:event_quantityActionPerformed
 
     private void appNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appNameMouseClicked
-        allPurchase purch = new allPurchase();
-        purch.clickAppName();
+        allPurchaseController purch = new allPurchaseController();
+        purch.goBackDashboard();
         this.setVisible(false);
     }//GEN-LAST:event_appNameMouseClicked
 
     private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
-        allPurchase purch = new allPurchase();
-        purch.cancel();
+        allPurchaseController purch = new allPurchaseController();
+        purch.goBackDashboard();
         this.setVisible(false);
     }//GEN-LAST:event_cancelMouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        allPurchase purch = new allPurchase();
-        purch.purchase(medName.getText(), quantity.getText());
+        allPurchaseController purch = new allPurchaseController();
+        if (medName.getText().equals("") || quantity.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "input first!!!");
+        }else{
+            purch.purchase(medName.getText(), quantity.getText());
+        }
         this.setVisible(false);
     }//GEN-LAST:event_jButton6MouseClicked
 

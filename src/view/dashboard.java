@@ -12,7 +12,7 @@ public class dashboard extends javax.swing.JFrame {
 
     public dashboard() {
         initComponents();
-        allDash dash = new allDash();
+        allDashController dash = new allDashController();
         dash.cough(medicineName.getText(), medTable.getColumnCount(), medTable);
     }
 
@@ -40,7 +40,7 @@ public class dashboard extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         medTable = new javax.swing.JTable();
         medicineName = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        purchase = new javax.swing.JButton();
         logout = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -123,11 +123,11 @@ public class dashboard extends javax.swing.JFrame {
         medicineName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         medicineName.setText("Cough");
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton6.setText("Purchase");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        purchase.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        purchase.setText("Purchase");
+        purchase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                purchaseMouseClicked(evt);
             }
         });
 
@@ -163,7 +163,7 @@ public class dashboard extends javax.swing.JFrame {
                 .addGap(316, 316, 316))
             .addGroup(FlixotideLayout.createSequentialGroup()
                 .addGap(149, 149, 149)
-                .addComponent(jButton6)
+                .addComponent(purchase)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
@@ -184,7 +184,7 @@ public class dashboard extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
+                    .addComponent(purchase)
                     .addComponent(jButton2)
                     .addComponent(logout))
                 .addContainerGap(37, Short.MAX_VALUE))
@@ -248,25 +248,25 @@ public class dashboard extends javax.swing.JFrame {
 
     private void btnCoughMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCoughMouseClicked
         medicineName.setText("Cough");
-        allDash dash = new allDash();
+        allDashController dash = new allDashController();
         dash.cough(medicineName.getText(), medTable.getColumnCount(), medTable);
     }//GEN-LAST:event_btnCoughMouseClicked
 
     private void btnBodyPainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBodyPainMouseClicked
         medicineName.setText("Body Pain");
-        allDash dash = new allDash();
+        allDashController dash = new allDashController();
         dash.cough("bodyPain", medTable.getColumnCount(), medTable);
     }//GEN-LAST:event_btnBodyPainMouseClicked
 
     private void btnHeadacheMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHeadacheMouseClicked
         medicineName.setText("Headache");
-        allDash dash = new allDash();
+        allDashController dash = new allDashController();
         dash.cough(medicineName.getText(), medTable.getColumnCount(), medTable);
     }//GEN-LAST:event_btnHeadacheMouseClicked
 
     private void btnAllergyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAllergyMouseClicked
         medicineName.setText("Allergies");
-        allDash dash = new allDash();
+        allDashController dash = new allDashController();
         dash.cough(medicineName.getText(), medTable.getColumnCount(), medTable);
     }//GEN-LAST:event_btnAllergyMouseClicked
 
@@ -279,16 +279,17 @@ public class dashboard extends javax.swing.JFrame {
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
                 options, options[0]);
         if (answer == JOptionPane.YES_OPTION) {
-            allDash dash = new allDash();
+            allDashController dash = new allDashController();
             dash.logOut();
             this.setVisible(false);
         }
     }//GEN-LAST:event_logoutMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void purchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purchaseMouseClicked
+        allDashController dash = new allDashController();
+        dash.status();
         this.setVisible(false);
-        new purchase().setVisible(true);
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_purchaseMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         this.setVisible(false);
@@ -337,7 +338,6 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnCough;
     private javax.swing.JButton btnHeadache;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -349,6 +349,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JButton logout;
     private javax.swing.JTable medTable;
     private javax.swing.JLabel medicineName;
+    private javax.swing.JButton purchase;
     private java.awt.TextField search;
     // End of variables declaration//GEN-END:variables
 }

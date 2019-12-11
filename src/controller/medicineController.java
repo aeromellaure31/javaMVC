@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import model.*;
 
-public class med {
+public class medicineController {
     List allMed = new ArrayList();
     List med = new ArrayList();
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -17,27 +18,21 @@ public class med {
     static final String PASS = "";
     
     public void addMed(String medType, String medName, String brName, String genName, String price, String quantity){
+        medicineModel medicine = new medicineModel();
         String fetchMedName = null;
-
-        String insertQuery = String.format("INSERT INTO tblMedicine(medicineName,brandName,"
-                + "genericName,quantity,price,medicineType)"
-                + " VALUES ('%s', '%s', '%s', '%d', '%d', '%s')", medName, brName, genName, Integer.parseInt(quantity), Integer.parseInt(price), medType);
-        String fetchQuery = ("Select medicineName from tblmedicine");
         Connection conn = null;
         Statement stmt = null;
-//        String retrieveQuery;
-//        retrieveQuery = String.format("SELECT * from `medic`");
         try {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
             if (medType.equals("Cough") || medType.equals("Allergies") || medType.equals("BodyPain") || medType.equals("Headache")) {
-                ResultSet rsAccount = stmt.executeQuery(fetchQuery);
+                ResultSet rsAccount = stmt.executeQuery(medicine.fetchAllMedicine());
                 while (rsAccount.next()) {
                     fetchMedName = rsAccount.getString("medicineName");
                     med.add(fetchMedName);
                 }
                 if (!med.contains(medName)) {
-                    stmt.executeUpdate(insertQuery);
+                    stmt.executeUpdate(medicine.insertMed(medType, medName, brName, genName, price, quantity));
                     new dashboardPharmacist().setVisible(true);
                     conn.close();
                     med.clear();
@@ -53,22 +48,20 @@ public class med {
     }
     
     public void deleteMed(String medicineName){
+        medicineModel medicine = new medicineModel();
         String medicName = null;
-
-        String deleteMed = String.format("DELETE FROM tblMedicine WHERE medicineName='%s'", medicineName);
-        String allMed = ("SELECT medicineName FROM tblMedicine");
         Connection conn = null;
         Statement stmt = null;
         try {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(allMed);
+            ResultSet rs = stmt.executeQuery(medicine.fetchAllMedicine());
             while (rs.next()) {
                 medicName = rs.getString("medicineName");
                 med.add(medicName);
             }
             if (med.contains(medicineName)) {
-                stmt.executeQuery(deleteMed);
+                stmt.executeQuery(medicine.delMed(medicineName));
             } else {
                 JOptionPane.showMessageDialog(null, "No Medicine Name!!!");
             }
@@ -78,23 +71,20 @@ public class med {
     }
     
     public void search(String searched, JTextField medType, JTextField medName, JTextField brandName, JTextField genName, JTextField price, JTextField quantity){
-        String fetchMed = String.format("SELECT * FROM tblMedicine WHERE medicineName='%s'", searched);
-        String fetchAll = String.format("SELECT medicineName FROM tblMedicine");
+        medicineModel medicine = new medicineModel();
         String data = null;
         Connection conn = null;
         Statement stmt = null;
-//        String retrieveQuery;
-//        retrieveQuery = String.format("SELECT * from `medic`");
         try {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(fetchAll);
+            ResultSet rs = stmt.executeQuery(medicine.fetchAllMedicine());
             while (rs.next()) {
                 data = rs.getString("medicineName");
                 allMed.add(data.toLowerCase());
             }
             if (allMed.contains(searched.toLowerCase())) {
-                ResultSet rsAccount = stmt.executeQuery(fetchMed);
+                ResultSet rsAccount = stmt.executeQuery(medicine.searchMed(searched));
                 rsAccount.next();
                 medType.setText(rsAccount.getString("medicineType"));
                 medName.setText(rsAccount.getString("medicineName"));
@@ -111,12 +101,8 @@ public class med {
     }
     
     public void update(String searched, String medicineType, String medicineName, String brName, String genericName, String price, String quant){
+        medicineModel medicine = new medicineModel();
         String fetchMedName = null;
-        String updateQuery = String.format("UPDATE tblmedicine SET medicineName='%s' "
-                + ",brandName='%s' ,genericName='%s' ,price='%d',quantity='%d' "
-                + ",medicineType='%s' WHERE medicineName='%s'"
-                + "", medicineName, brName, genericName, Integer.parseInt(price), Integer.parseInt(quant), medicineType, searched);
-        String fetchQuery = ("Select medicineName from tblmedicine");
         Connection conn = null;
         Statement stmt = null;
 //        String retrieveQuery;
@@ -125,18 +111,18 @@ public class med {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
             if (medicineType.equals("Cough") || medicineType.equals("Allergies") || medicineType.equals("BodyPain") || medicineType.equals("Headache")) {
-                ResultSet rsAccount = stmt.executeQuery(fetchQuery);
+                ResultSet rsAccount = stmt.executeQuery(medicine.fetchAllMedicine());
                 while (rsAccount.next()) {
                     fetchMedName = rsAccount.getString("medicineName");
                     med.add(fetchMedName);
                 }
                 if (searched.equalsIgnoreCase(medicineName)) {
-                    stmt.executeUpdate(updateQuery);
+                    stmt.executeUpdate(medicine.outcome(searched, medicineType, medicineName, brName, genericName, price, quant));
                     new dashboardPharmacist().setVisible(true);
                     conn.close();
                     med.clear();
                 } else if (!med.contains(medicineName)) {
-                    stmt.executeUpdate(updateQuery);
+                    stmt.executeUpdate(medicine.outcome(searched, medicineType, medicineName, brName, genericName, price, quant));
                     new dashboardPharmacist().setVisible(true);
                     conn.close();
                     med.clear();

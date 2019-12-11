@@ -11,7 +11,7 @@ public class viewAllPurchased extends javax.swing.JFrame {
 
     public viewAllPurchased() {
         initComponents();
-        allPurchase purch = new allPurchase();
+        allPurchaseController purch = new allPurchaseController();
         purch.viewAllPurchase(medTable);
     }
 

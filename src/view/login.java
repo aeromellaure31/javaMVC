@@ -148,6 +148,7 @@ public class login extends javax.swing.JFrame {
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
         userController c = new userController();
         c.login(userNameInput.getText(), passInput.getText());
+        this.setVisible(false);
     }//GEN-LAST:event_loginMouseClicked
 
     /**

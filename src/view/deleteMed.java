@@ -197,7 +197,7 @@ public class deleteMed extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelMouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        med med = new med();
+        medicineController med = new medicineController();
         med.deleteMed(medName.getText());
     }//GEN-LAST:event_jButton6MouseClicked
 

@@ -372,7 +372,7 @@ public class updateMed extends javax.swing.JFrame {
     }//GEN-LAST:event_appNameMouseClicked
 
     private void addMedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMedMouseClicked
-        med med = new med();
+        medicineController med = new medicineController();
         med.update(searchMed.getText(), medType.getText(), medName.getText(), brandName.getText(), genName.getText(), price.getText(), quantity.getText());
         this.setVisible(false);
     }//GEN-LAST:event_addMedMouseClicked
@@ -402,7 +402,7 @@ public class updateMed extends javax.swing.JFrame {
     }//GEN-LAST:event_genNameActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        med med = new med();
+        medicineController med = new medicineController();
         med.search(searchMed.getText(), medType, medName, brandName, genName, price, quantity);
     }//GEN-LAST:event_jButton1MouseClicked
 

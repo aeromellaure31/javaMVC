@@ -345,7 +345,7 @@ public class addMed extends javax.swing.JFrame {
     }//GEN-LAST:event_appNameMouseClicked
 
     private void addMedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMedMouseClicked
-        med med = new med();
+        medicineController med = new medicineController();
         med.addMed(medType.getText(), medName.getText(), brandName.getText(), genName.getText(), price.getText(), quantity.getText());
     }//GEN-LAST:event_addMedMouseClicked
 
