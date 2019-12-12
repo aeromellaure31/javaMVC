@@ -30,7 +30,7 @@ public class deleteMed extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         Flixotide = new javax.swing.JPanel();
         medicineName = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         medName = new javax.swing.JTextField();
         cancel = new javax.swing.JButton();
         medicineName2 = new javax.swing.JLabel();
@@ -63,11 +63,11 @@ public class deleteMed extends javax.swing.JFrame {
         medicineName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         medicineName.setText("Medicine Name: ");
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton6.setText("Delete");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnDelete.setText("Delete");
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                btnDeleteMouseClicked(evt);
             }
         });
 
@@ -100,7 +100,7 @@ public class deleteMed extends javax.swing.JFrame {
                 .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FlixotideLayout.createSequentialGroup()
                         .addGap(252, 252, 252)
-                        .addComponent(jButton6)
+                        .addComponent(btnDelete)
                         .addGap(18, 18, 18)
                         .addComponent(cancel))
                     .addGroup(FlixotideLayout.createSequentialGroup()
@@ -122,7 +122,7 @@ public class deleteMed extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancel)
-                    .addComponent(jButton6))
+                    .addComponent(btnDelete))
                 .addGap(49, 49, 49))
         );
 
@@ -196,10 +196,10 @@ public class deleteMed extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_cancelMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
         medicineController med = new medicineController();
         med.deleteMed(medName.getText());
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_btnDeleteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -242,8 +242,8 @@ public class deleteMed extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Flixotide;
     private javax.swing.JLabel appName;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton cancel;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;

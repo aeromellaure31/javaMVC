@@ -41,7 +41,7 @@ public class viewAllPurchased extends javax.swing.JFrame {
         search = new java.awt.TextField();
         jSeparator2 = new javax.swing.JSeparator();
         Flixotide = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
+        btnOk = new javax.swing.JButton();
         medicineName2 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         medTable = new javax.swing.JTable();
@@ -136,11 +136,11 @@ public class viewAllPurchased extends javax.swing.JFrame {
 
         Flixotide.setBackground(new java.awt.Color(153, 153, 153));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton6.setText("OK");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnOk.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnOk.setText("OK");
+        btnOk.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                btnOkMouseClicked(evt);
             }
         });
 
@@ -186,7 +186,7 @@ public class viewAllPurchased extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FlixotideLayout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(304, 304, 304))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FlixotideLayout.createSequentialGroup()
                         .addComponent(medicineName2)
@@ -203,7 +203,7 @@ public class viewAllPurchased extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(medicineName2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(btnOk)
                 .addGap(29, 29, 29))
             .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(FlixotideLayout.createSequentialGroup()
@@ -273,10 +273,10 @@ public class viewAllPurchased extends javax.swing.JFrame {
         new dashboardPharmacist().setVisible(true);
     }//GEN-LAST:event_appNameMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void btnOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOkMouseClicked
         this.setVisible(false);
         new dashboardPharmacist().setVisible(true);
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_btnOkMouseClicked
 
     /**
      * @param args the command line arguments
@@ -331,7 +331,7 @@ public class viewAllPurchased extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Flixotide;
     private javax.swing.JLabel appName;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnOk;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;

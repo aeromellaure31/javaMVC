@@ -31,7 +31,7 @@ public class purchase extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         Flixotide = new javax.swing.JPanel();
         medicineName = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        purchase = new javax.swing.JButton();
         medName = new javax.swing.JTextField();
         medicineName1 = new javax.swing.JLabel();
         quantity = new javax.swing.JTextField();
@@ -66,11 +66,11 @@ public class purchase extends javax.swing.JFrame {
         medicineName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         medicineName.setText("Medicine Name: ");
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton6.setText("Purchase");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        purchase.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        purchase.setText("Purchase");
+        purchase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                purchaseMouseClicked(evt);
             }
         });
 
@@ -106,7 +106,7 @@ public class purchase extends javax.swing.JFrame {
             FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FlixotideLayout.createSequentialGroup()
                 .addGap(231, 231, 231)
-                .addComponent(jButton6)
+                .addComponent(purchase)
                 .addGap(44, 44, 44)
                 .addComponent(cancel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -142,7 +142,7 @@ public class purchase extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancel)
-                    .addComponent(jButton6))
+                    .addComponent(purchase))
                 .addGap(39, 39, 39))
         );
 
@@ -222,7 +222,7 @@ public class purchase extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_cancelMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void purchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purchaseMouseClicked
         allPurchaseController purch = new allPurchaseController();
         if (medName.getText().equals("") || quantity.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "input first!!!");
@@ -230,7 +230,7 @@ public class purchase extends javax.swing.JFrame {
             purch.purchase(medName.getText(), quantity.getText());
         }
         this.setVisible(false);
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_purchaseMouseClicked
 
     /**
      * @param args the command line arguments
@@ -272,7 +272,6 @@ public class purchase extends javax.swing.JFrame {
     private javax.swing.JPanel Flixotide;
     private javax.swing.JLabel appName;
     private javax.swing.JButton cancel;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -283,6 +282,7 @@ public class purchase extends javax.swing.JFrame {
     private javax.swing.JLabel medicineName;
     private javax.swing.JLabel medicineName1;
     private javax.swing.JLabel medicineName2;
+    private javax.swing.JButton purchase;
     private javax.swing.JTextField quantity;
     private java.awt.TextField search;
     // End of variables declaration//GEN-END:variables

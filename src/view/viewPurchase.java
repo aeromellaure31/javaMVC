@@ -41,7 +41,7 @@ public class viewPurchase extends javax.swing.JFrame {
         search = new java.awt.TextField();
         jSeparator2 = new javax.swing.JSeparator();
         Flixotide = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
+        btnOk = new javax.swing.JButton();
         medicineName2 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         medTable = new javax.swing.JTable();
@@ -140,11 +140,11 @@ public class viewPurchase extends javax.swing.JFrame {
 
         Flixotide.setBackground(new java.awt.Color(153, 153, 153));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton6.setText("OK");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnOk.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnOk.setText("OK");
+        btnOk.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                btnOkMouseClicked(evt);
             }
         });
 
@@ -190,7 +190,7 @@ public class viewPurchase extends javax.swing.JFrame {
             FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FlixotideLayout.createSequentialGroup()
                 .addGap(307, 307, 307)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FlixotideLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -223,7 +223,7 @@ public class viewPurchase extends javax.swing.JFrame {
                     .addComponent(totalPrice)
                     .addComponent(discounted, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
-                .addComponent(jButton6)
+                .addComponent(btnOk)
                 .addContainerGap())
             .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(FlixotideLayout.createSequentialGroup()
@@ -294,11 +294,11 @@ public class viewPurchase extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_appNameMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void btnOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOkMouseClicked
         allPurchaseController purch = new allPurchaseController();
         purch.goBackDashboard();
         this.setVisible(false);
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_btnOkMouseClicked
 
     /**
      * @param args the command line arguments
@@ -341,8 +341,8 @@ public class viewPurchase extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Flixotide;
     private javax.swing.JLabel appName;
+    private javax.swing.JButton btnOk;
     private javax.swing.JLabel discounted;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -41,11 +41,11 @@ public class dashboardPharmacist extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         medTable = new javax.swing.JTable();
         medicineName = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        purchase = new javax.swing.JButton();
         logout = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        viewAllPurchase = new javax.swing.JButton();
+        addMed = new javax.swing.JButton();
+        updateMed = new javax.swing.JButton();
         deleteMed = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -136,11 +136,11 @@ public class dashboardPharmacist extends javax.swing.JFrame {
         medicineName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         medicineName.setText("Cough");
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton6.setText("Purchase");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        purchase.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        purchase.setText("Purchase");
+        purchase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                purchaseMouseClicked(evt);
             }
         });
 
@@ -152,32 +152,32 @@ public class dashboardPharmacist extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton4.setText("View All Purchased");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        viewAllPurchase.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        viewAllPurchase.setText("View All Purchased");
+        viewAllPurchase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                viewAllPurchaseMouseClicked(evt);
             }
         });
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton7.setText("Add Medicine");
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+        addMed.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        addMed.setText("Add Medicine");
+        addMed.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton7MouseClicked(evt);
+                addMedMouseClicked(evt);
             }
         });
 
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton8.setText("Update Medicine");
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+        updateMed.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        updateMed.setText("Update Medicine");
+        updateMed.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
+                updateMedMouseClicked(evt);
             }
         });
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        updateMed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                updateMedActionPerformed(evt);
             }
         });
 
@@ -210,9 +210,9 @@ public class dashboardPharmacist extends javax.swing.JFrame {
                             .addComponent(jScrollPane2)))
                     .addGroup(FlixotideLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton8)
+                        .addComponent(updateMed)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton7)
+                        .addComponent(addMed)
                         .addGap(18, 18, 18)
                         .addComponent(viewPurchase)
                         .addGap(81, 81, 81))
@@ -223,9 +223,9 @@ public class dashboardPharmacist extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(FlixotideLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jButton6)
+                .addComponent(purchase)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(viewAllPurchase)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(deleteMed, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -246,15 +246,15 @@ public class dashboardPharmacist extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
+                    .addComponent(purchase)
                     .addComponent(logout)
-                    .addComponent(jButton4)
+                    .addComponent(viewAllPurchase)
                     .addComponent(deleteMed))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(FlixotideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
+                    .addComponent(addMed)
                     .addComponent(viewPurchase)
-                    .addComponent(jButton8))
+                    .addComponent(updateMed))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -353,10 +353,10 @@ public class dashboardPharmacist extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logoutMouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void purchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purchaseMouseClicked
         this.setVisible(false);
         new purchase().setVisible(true);
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_purchaseMouseClicked
 
     private void viewPurchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewPurchaseMouseClicked
         this.setVisible(false);
@@ -367,24 +367,24 @@ public class dashboardPharmacist extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3MouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void viewAllPurchaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAllPurchaseMouseClicked
         this.setVisible(false);
         new viewAllPurchased().setVisible(true);
-    }//GEN-LAST:event_jButton4MouseClicked
+    }//GEN-LAST:event_viewAllPurchaseMouseClicked
 
-    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+    private void addMedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMedMouseClicked
         this.setVisible(false);
         new addMed().setVisible(true);
-    }//GEN-LAST:event_jButton7MouseClicked
+    }//GEN-LAST:event_addMedMouseClicked
 
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+    private void updateMedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMedMouseClicked
         this.setVisible(false);
         new updateMed().setVisible(true);
-    }//GEN-LAST:event_jButton8MouseClicked
+    }//GEN-LAST:event_updateMedMouseClicked
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void updateMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_updateMedActionPerformed
 
     private void deleteMedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMedMouseClicked
         this.setVisible(false);
@@ -429,16 +429,13 @@ public class dashboardPharmacist extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Flixotide;
+    private javax.swing.JButton addMed;
     private javax.swing.JButton btnAllergy;
     private javax.swing.JButton btnBodyPain;
     private javax.swing.JButton btnCough;
     private javax.swing.JButton btnHeadache;
     private javax.swing.JButton deleteMed;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -450,7 +447,10 @@ public class dashboardPharmacist extends javax.swing.JFrame {
     private javax.swing.JButton logout;
     private javax.swing.JTable medTable;
     private javax.swing.JLabel medicineName;
+    private javax.swing.JButton purchase;
     private java.awt.TextField search;
+    private javax.swing.JButton updateMed;
+    private javax.swing.JButton viewAllPurchase;
     private javax.swing.JButton viewPurchase;
     // End of variables declaration//GEN-END:variables
 }
